@@ -1,0 +1,32 @@
+<mat-toolbar>My Top Rated Books</mat-toolbar>
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let book of favoriteBooks">
+      <mat-card style="border:1px solid gray; margin: 5% 5% 5% 5%;box-shadow: 5px 5px gray;">
+        <mat-card-header>
+          <mat-card-title><h4>{{book.title}}</h4></mat-card-title>
+        </mat-card-header>
+          <img mat-card-image src="{{book.imageUrl}}" alt="{{book.title}}" style="width:200px;height:200px;padding-left:10%;">
+        <mat-card-actions>
+          <button mat-card-button mat-raised-button class="detailsButton" [routerLink]="['/book/'+book.$key]" ><i class="material-icons">visibility</i>Book Details</button>
+          <button mat-card-button mat-raised-button class="editButton" [routerLink]="['/edit-book/'+book.$key]" ><i class="material-icons">mode_edit</i>Edit Book</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-toolbar>Books I have not read yet</mat-toolbar>
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let book of unreadBooks">
+      <mat-card style="border:1px solid gray; margin: 5% 5% 5% 5%;box-shadow: 5px 5px gray;">
+        <mat-card-header>
+          <mat-card-title><h4>{{book.title}}</h4></mat-card-title>
+        </mat-card-header>
+          <img mat-card-image src="{{book.imageUrl}}" alt="{{book.title}}" style="width:200px;height:200px;padding-left:10%;">
+        <mat-card-actions>
+          <button mat-card-button mat-raised-button class="detailsButton" [routerLink]="['/book/'+book.$key]" ><i class="material-icons">visibility</i>Book Details</button>
+          <button mat-card-button mat-raised-button class="editButton" [routerLink]="['/edit-book/'+book.$key]" ><i class="material-icons">mode_edit</i>Edit Book</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<br><br>
